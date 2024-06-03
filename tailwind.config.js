@@ -1,5 +1,5 @@
 export default {
-    content: ['./entrypoints/**/*.{html,ts,tsx,js,jsx}', './components/**/*.ts'],
+    content: ['./src/**/*.{html,ts,tsx,js,jsx}'],
     theme: {
         extend: {},
     },
