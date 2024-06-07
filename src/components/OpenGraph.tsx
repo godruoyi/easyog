@@ -1,9 +1,7 @@
-function OpenGraph() {
+import { TwitterOpenGraph } from '@/components/TwitterOpenGraph.tsx'
+
+export function OpenGraph() {
     return (
-        <div className="bg-amber-500 w-32 h-20">
-            <h1>Hello</h1>
-        </div>
+        <TwitterOpenGraph />
     )
 }
-
-export default OpenGraph

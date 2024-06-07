@@ -9,4 +9,11 @@ export default defineConfig({
     vite: () => ({
         plugins: [react()],
     }),
+    manifest: {
+        action: {
+            default_icon: 'icon/32.png',
+            default_title: 'XXXXXx',
+        },
+        permissions: ['tabs', 'contextMenus', 'nativeMessaging'],
+    },
 })

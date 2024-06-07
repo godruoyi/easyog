@@ -1,3 +1,9 @@
+import Background from '@/background.ts'
+
 export default defineBackground(() => {
-    console.log('Hello background!', { id: browser.runtime.id })
+    const background = new Background()
+
+    background.registerActionClickedListener()
+    // background.registerContextMenusListener()
+    // background.registerMessageListener()
 })
