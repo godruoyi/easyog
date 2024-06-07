@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { TwitterOpenGraph } from '@/components/TwitterOpenGraph.tsx'
+import { OpengraphTagName } from '@/constants.ts'
 
 const ExtensionContainerId = 'ExtensionContainerIdExtensionContainerId'
 
@@ -13,7 +14,7 @@ export function OpenGraph() {
     }
 
     const handleDocumentClick = (e: any) => {
-        if (e.target?.id === ExtensionContainerId) {
+        if (e.target?.tagName === OpengraphTagName.toUpperCase()) {
             return
         }
         setIsOpen(false)

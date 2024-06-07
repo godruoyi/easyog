@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom/client'
 import type { ShadowRootContentScriptUi } from 'wxt/client'
 import type { IEvent, IEventType } from '@/types.ts'
 import { OpenGraph } from '@/components/OpenGraph.tsx'
+import { OpengraphTagName } from '@/constants.ts'
 
 let ui: ShadowRootContentScriptUi<ReactDOM.Root> | null = null
 
@@ -17,14 +18,12 @@ export default class ContentScript {
     }
 
     public async createShadowRootUi(ctx: any, event: IEvent) {
-        const name = 'browser-extension-opengraph-checker'
-
         if (ui) {
             ui.remove()
         }
 
         ui = await createShadowRootUi(ctx, {
-            name,
+            name: OpengraphTagName,
             position: 'overlay',
             zIndex: 2147483647,
             onMount: (container) => {
