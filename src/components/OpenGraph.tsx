@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import { TwitterOpenGraph } from '@/components/TwitterOpenGraph.tsx'
 import { OpengraphTagName } from '@/constants.ts'
+import type { ITab } from '@/types.ts'
 
-const ExtensionContainerId = 'ExtensionContainerIdExtensionContainerId'
-
-export function OpenGraph() {
+export function OpenGraph(props: { tab: ITab }) {
     const [isOpen, setIsOpen] = useState(true)
 
     const keyPress = (e: any) => {
@@ -35,10 +34,8 @@ export function OpenGraph() {
     return (
         <div
             style={{ display: isOpen ? 'block' : 'none' }}
-            className=""
-            id={ExtensionContainerId}
         >
-            <TwitterOpenGraph />
+            <TwitterOpenGraph tab={props.tab} />
         </div>
     )
 }

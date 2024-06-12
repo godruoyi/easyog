@@ -1,13 +1,24 @@
 export function Header() {
     return (
-        <div className="mx-8 pt-2">
+        <div className="mx-6 pt-2">
             <div className="flex">
                 <div className="flex-grow">
                     <div className="flex justify-between">
-                        <h1 className="text-xl text-neutral-200">
-                            Open
-                            <span className="text-yellow-500 text-sm"> Checker</span>
-                        </h1>
+                        <div className="inline-flex justify-center items-center">
+                            <div className="">
+                                <svg width="30" height="30" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="120" height="120" rx="21" fill="#E7E9EA" />
+                                    <rect x="20" y="20" width="80" height="80" rx="40" fill="black" />
+                                    <rect x="32" y="32" width="56" height="56" rx="28" fill="white" />
+                                    <path d="M39.6378 47.5521C40.6238 46.5576 42.1668 46.3776 43.3553 47.1185L60.0075 57.5L92.7767 17.7003C94.1844 15.9905 96.2831 15 98.4978 15V15C99.3702 15 99.9026 15.9589 99.4413 16.6994L65.44 71.2795C62.8308 75.468 56.823 75.7141 53.8798 71.7531L39.0381 51.7784C38.1536 50.5881 38.2716 48.9301 39.3157 47.877L39.6378 47.5521Z" fill="#EAB308" />
+                                </svg>
+                            </div>
+                            <h1 className="ml-2 text-xl text-neutral-200 ">
+                                Easy
+                                <span className="text-yellow-500 ">OG</span>
+                                <span className="text-yellow-500 ">Debugger</span>
+                            </h1>
+                        </div>
                         <a
                             className="shadow-md inline-flex justify-center items-center"
                             href="https://github.com/godruoyi"
@@ -20,7 +31,7 @@ export function Header() {
                             </svg>
                         </a>
                     </div>
-                    <p className="text-neutral-300 text-xs">An open-source tool for checking OG styles of any website</p>
+                    {/* <p className="text-neutral-300 text-xs">An open-source tool for checking OG styles of any website</p> */}
                 </div>
             </div>
         </div>

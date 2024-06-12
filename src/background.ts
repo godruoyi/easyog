@@ -1,5 +1,6 @@
 import * as Tab from '@/support/tab.ts'
-import * as event from '@/support/event_bridge.ts'
+import type { IEvent, ITab } from '@/types.ts'
+import { IEventType } from '@/types.ts'
 
 class Background {
     public registerActionClickedListener() {
@@ -11,7 +12,11 @@ class Background {
             }
 
             const tabID = tab.id as number
-            await event.showPopup(tabID)
+            const event = { type: IEventType.ShowPopup, payload: {
+                url: tab.url,
+                title: tab.title,
+            } as ITab } as IEvent
+            await browser.tabs.sendMessage(tabID, event)
         })
     }
 }

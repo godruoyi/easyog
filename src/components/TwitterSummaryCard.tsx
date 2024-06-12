@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import type { ITwitterOpenGraph } from '@/types.ts'
 
-export function TwitterSummaryCard() {
+export function TwitterSummaryCard(props: { og: ITwitterOpenGraph }) {
     const divRef = useRef<HTMLDivElement | null>(null)
     const [height, setHeight] = useState(0)
+    const og = props.og
 
     useEffect(() => {
         if (divRef.current) {
@@ -16,18 +18,30 @@ export function TwitterSummaryCard() {
             <div className="rounded-l-xl border-[0.5px] border-r-0 border-gray-800 overflow-hidden">
                 <img
                     className="object-cover"
-                    style={{ width: `${height}px`, height: `${height}px` }}
-                    src="https://godruoyi.com/_astro/brand-logo.Z0NyS6D-_Z1Vdph6.webp"
-                    alt=""
+                    style={{ width: `${height}px`, height: `${height}px`, maxWidth: `${height}px` }}
+                    src={og.image}
+                    alt={og.imageAlt}
                 />
             </div>
-            <div ref={divRef} className="w-[300px] flex-grow rounded-r-xl border-[0.5px] border-l-0 border-gray-800 overflow-hidden">
-                <div className="flex flex-col text-[16px] gap-[2px] p-[12px]">
-                    <div className="leading-none text-gray-700 mt-[4px]">godruoyi.com</div>
-                    <div className="leading-none text-[17px] text-neutral-200">www </div>
-                    <div className="leading-none max-h-20 text-gray-700 block overflow-ellipsis overflow-hidden mb-[4px]">
-                        An open sn open sn ope An open sn open sn ope An open sn open sn ope
+            <div ref={divRef} className="w-[350px] flex-grow rounded-r-xl border-[0.5px] border-l-0 border-gray-800 overflow-hidden">
+                <div className="flex flex-col text-[16px] gap-[3px] p-4">
+                    <div className="leading-none text-gray-700 overflow-ellipsis">godruoyi.com</div>
+                    <div className="leading-none text-[17px] text-neutral-300 ">
+                        {og.title}
                     </div>
+                    <div
+                        style={{
+                            display: '-webkit-box',
+                            WebkitBoxOrient: 'vertical',
+                            WebkitLineClamp: 2,
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                        }}
+                        className="text-[13px] text-gray-700 leading-none"
+                    >
+                        <label className="">{og.description}</label>
+                    </div>
+
                 </div>
             </div>
         </div>

@@ -11,8 +11,8 @@ export default defineConfig({
     }),
     manifest: {
         action: {
-            default_icon: 'icon/32.png',
-            default_title: 'XXXXXx',
+            default_icon: 'icon/48.png',
+            default_title: 'Easy',
         },
         permissions: ['tabs', 'contextMenus', 'nativeMessaging'],
     },

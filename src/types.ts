@@ -1,10 +1,15 @@
 export interface ITwitterOpenGraph {
     card: string
-    site: string
+    url: string
     title: string
     description: string
     image: string
     imageAlt?: string
+}
+
+export interface ITab {
+    url: string
+    title: string
 }
 
 export interface IEvent {

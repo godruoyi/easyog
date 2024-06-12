@@ -1,22 +1,48 @@
+import React, { useEffect, useState } from 'react'
+import type { ITab, ITwitterOpenGraph } from '@/types.ts'
+import { extractOGTwitterElements } from '@/support/documents.ts'
+import { NoOpenGraphFount } from '@/components/NoOpenGraphFount.tsx'
 import { TwitterSummaryCard } from '@/components/TwitterSummaryCard.tsx'
-import { Header } from '@/components/Header.tsx'
+import { TwitterSummaryCardLargeImage } from '@/components/TwitterSummaryCardLargeImage.tsx'
 
-export function TwitterOpenGraph() {
+export function TwitterOpenGraph(props: { tab: ITab }) {
+    const tab = props.tab
+    const [data, setData] = useState<ITwitterOpenGraph>({} as ITwitterOpenGraph)
+
+    useEffect(() => {
+        ;(async () => {
+            const og = await extractOGTwitterElements()
+            if (og) {
+                if (!og.url) {
+                    og.url = tab.url
+                }
+
+                setData(og)
+            }
+        })()
+    }, [])
+
     return (
-        <div className="bg-zinc-850 rounded-md fixed top-1.5 right-1.5">
-            <Header />
-
-            <div className="mx-8 mt-4 bg-black rounded-md h-auto">
-                <div className="px-8 py-4">
-                    <div className="text-blue-700 text-base">https://godruoyi.com</div>
-                    <div className="mt-2">
-                        <TwitterSummaryCard />
-                    </div>
-                </div>
-            </div>
-
-            <div className="mx-8 my-2 text-neutral-300 text-[8px] text-center">
-                <div className="">@GODRUOYI</div>
+        <div className="fixed top-1.5 right-1.5 rounded-md border-[1px] border-gray-700 overflow-hidden">
+            <div className="bg-black h-auto">
+                {/* <Header /> */}
+                {
+                    !data || !data?.card
+                        ? <NoOpenGraphFount />
+                        : (
+                            <div className="px-6 py-4">
+                                <div className="flex justify-between items-center">
+                                    <div className="text-blue-700 text-base w-[400px] inset-x-0 overflow-hidden whitespace-nowrap overflow-ellipsis">{data.url}</div>
+                                    {/* <div className="right-0 text-neutral-200"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.2253 4.81108C5.83477 4.42056 5.20161 4.42056 4.81108 4.81108C4.42056 5.20161 4.42056 5.83477 4.81108 6.2253L10.5858 12L4.81114 17.7747C4.42062 18.1652 4.42062 18.7984 4.81114 19.1889C5.20167 19.5794 5.83483 19.5794 6.22535 19.1889L12 13.4142L17.7747 19.1889C18.1652 19.5794 18.7984 19.5794 19.1889 19.1889C19.5794 18.7984 19.5794 18.1652 19.1889 17.7747L13.4142 12L19.189 6.2253C19.5795 5.83477 19.5795 5.20161 19.189 4.81108C18.7985 4.42056 18.1653 4.42056 17.7748 4.81108L12 10.5858L6.2253 4.81108Z" fill="currentColor" /></svg></div> */}
+                                </div>
+                                <div className="mt-2">
+                                    {
+                                        data.card === 'summary' ? <TwitterSummaryCard og={data} /> : <TwitterSummaryCardLargeImage og={data} />
+                                    }
+                                </div>
+                            </div>
+                            )
+                }
             </div>
         </div>
     )
