@@ -27,6 +27,7 @@ export default antfu({
     // `.eslint ignore` is no longer supported in Flat config, use `ignores` instead
     ignores: [
         './fixtures',
+        './README.md',
         // ...globs
     ],
 })

@@ -1,7 +1,7 @@
 <p align="center">
-	<image src="https://github.com/godruoyi/og/assets/16079222/88f540bd-944f-4642-802e-c91c8105fb19" width="250" height="250"></image>
-	<br />
-	<h3 align="center">An open-source tool for checking OG styles of any website</h3>
+    <image src="https://github.com/godruoyi/og/assets/16079222/88f540bd-944f-4642-802e-c91c8105fb19" width="250" height="250"></image>
+    <br />
+    <h3 align="center">An open-source tool for checking OG styles of any website</h3>
 </p>
 <hr>
 
@@ -13,11 +13,10 @@ Easygoing is a browser extension that can display the OpenGraph style of any web
 
 - [x] 🌰 Click once to display the OG style of any website
 - [x] 🐜 Base On [wxt](https://wxt.dev/)
-- [x] 🐊 Integrated Tailwind CSS and React 
+- [x] 🐊 Integrated Tailwind CSS and React
 
 ## Demo
-
-
+https://github.com/godruoyi/gblog/assets/16079222/52e5f5df-d3d8-452f-8a86-732e81725691
 
 ## Installation
 
