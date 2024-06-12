@@ -9,14 +9,14 @@
 
 Easygoing is a browser extension that can display the OpenGraph style of any website, including localhost. Currently, it only supports displaying Twitter's OpenGraph style.
 
+## Demo
+https://github.com/godruoyi/gblog/assets/16079222/52e5f5df-d3d8-452f-8a86-732e81725691
+
 ## Features
 
 - [x] 🌰 Click once to display the OG style of any website
 - [x] 🐜 Base On [wxt](https://wxt.dev/)
 - [x] 🐊 Integrated Tailwind CSS and React
-
-## Demo
-https://github.com/godruoyi/gblog/assets/16079222/52e5f5df-d3d8-452f-8a86-732e81725691
 
 ## Installation
 
